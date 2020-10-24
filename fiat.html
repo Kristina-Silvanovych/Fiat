@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let fiat = {
+        make: "Fiat",
+        model: "500",
+        year: 1957,
+        fuel: 1,
+        color: "Blue",
+        passengers: 2,
+        mileage: 88000,
+        started: false,
+        start: function () {
+          this.started = true;
+        },
+        stop: function () {
+          this.started = false;
+        },
+        drive: function () {
+          if (this.fuel != 0) {
+            if (this.started) {
+              alert("Бип!");
+              this.fuel -= 2;
+            } else {
+              alert("Сначала запустите двигатель!");
+            }
+          } else {
+            alert("Пополнить топливо!");
+          }
+        },
+        showFuel: function () {
+          alert("У меня в баке " + this.fuel + " литров бензина!");
+        },
+        addFuel: function (amount) {
+          this.fuel += amount;
+        },
+      };
+      fiat.toString = function () {
+        return "Автомобиль " + this.make + ", " + this.model + ", " + this.year;
+      };
+      alert(fiat);
+      fiat.start();
+      fiat.showFuel();
+      fiat.addFuel(10);
+      fiat.drive();
+      fiat.showFuel();
+      fiat.stop();
+      fiat.drive();
+    </script>
+  </body>
+</html>
